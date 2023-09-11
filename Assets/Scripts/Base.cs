@@ -4,13 +4,16 @@ using UnityEngine;
 public class Base : MonoBehaviour
 {
     [SerializeField]
-    private float health = 10;
+    private float health = 100;
 
     [SerializeField]
-    private float coins = 10;
+    private float coins = 30;
 
     [SerializeField]
-    private TextMeshProUGUI CoinsCounter;
+    private TextMeshProUGUI CoinsCounterLabel;
+
+    [SerializeField]
+    private TextMeshProUGUI BaseHealthLabel;
 
     [SerializeField]
     private Gun gunPrefab;
@@ -44,13 +47,22 @@ public class Base : MonoBehaviour
         Messaging<MonsterAttacksCoreEvent>.Register((damage) =>
         {
             health -= damage;
+
+            UpdateBaseHealth();
         });
 
         UpdateCoins();
+
+        UpdateBaseHealth();
     }
 
     private void UpdateCoins()
     {
-        CoinsCounter.text = coins.ToString();
+        CoinsCounterLabel.text = coins.ToString();
+    }
+
+    private void UpdateBaseHealth()
+    {
+        BaseHealthLabel.text = health.ToString();
     }
 }
