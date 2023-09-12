@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -18,16 +19,22 @@ public class Base : MonoBehaviour
     [SerializeField]
     private Gun gunPrefab;
 
+    [SerializeField]
+    private List<GunTier> gunsTierList = new();
+
     void Awake()
     {
         Messaging<GunBuildEvent>.Register((platform) =>
         {
-            if (Gun.Cost <= coins)
+            GunTier tier = GetTierById(0);
+
+            if (tier.Cost <= coins)
             {
                 Gun gun = Instantiate(gunPrefab, Input.mousePosition, Quaternion.identity);
-                gun.BuildAt(platform);
+                gun.Build(platform);
+                gun.Upgrade(tier);
 
-                coins -= Gun.Cost;
+                coins -= tier.Cost;
 
                 UpdateCoins();
 
@@ -44,6 +51,20 @@ public class Base : MonoBehaviour
             UpdateCoins();
         });
 
+        Messaging<GunUpgradeEvent>.Register((gun) =>
+        {
+            GunTier tier = GetTierById(gun.Tier + 1);
+
+            if (tier != null && tier.Cost <= coins)
+            {
+                gun.Upgrade(tier);
+
+                coins -= tier.Cost;
+
+                UpdateCoins();
+            }
+        });
+
         Messaging<MonsterAttacksCoreEvent>.Register((damage) =>
         {
             health -= damage;
@@ -54,6 +75,16 @@ public class Base : MonoBehaviour
         UpdateCoins();
 
         UpdateBaseHealth();
+    }
+
+    private GunTier GetTierById(int tierId)
+    {
+        if (tierId >= gunsTierList.Count)
+        {
+            return null;
+        }
+
+        return gunsTierList[tierId];
     }
 
     private void UpdateCoins()

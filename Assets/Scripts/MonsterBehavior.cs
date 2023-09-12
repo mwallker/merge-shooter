@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour
+public class MonsterBehavior : MonoBehaviour
 {
     void FixedUpdate()
     {

@@ -11,9 +11,9 @@ public class MonsterSpawner : MonoBehaviour
     private float spawnInterval = 1.5f;
 
     [SerializeField]
-    private int spawnAmount = 20;
+    private int spawnAmount = 100;
 
-    private readonly Monster[] monsters = new Monster[20];
+    private Monster[] monsters;
 
     void Start()
     {
@@ -27,9 +27,11 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator SpawnMonsterWithInterval()
     {
+        monsters = new Monster[spawnAmount];
+
         for (int monsterIndex = 0; monsterIndex < spawnAmount; monsterIndex++)
         {
-            monsters[monsterIndex] = Instantiate(monsterPrefab).AttackLine(Random.Range(0, Grid.LinesCount));
+            monsters[monsterIndex] = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, Grid.LinesCount));
 
             yield return new WaitForSeconds(spawnInterval);
         }

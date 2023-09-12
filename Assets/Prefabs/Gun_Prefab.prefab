@@ -303,6 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunAnimator: {fileID: 738902904729981365}
+  BaseSpriteReference: {fileID: 179188159973628678}
+  BarrelSpriteReference: {fileID: 1056032132001948015}
 --- !u!95 &738902904729981365
 Animator:
   serializedVersion: 5

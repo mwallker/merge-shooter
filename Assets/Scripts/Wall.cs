@@ -14,7 +14,7 @@ public class Wall : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<IDamageable>(out var target))
         {
-            target.AttackCore();
+            target.HitCore();
         }
 
         wallAnimator.SetTrigger("Hit");

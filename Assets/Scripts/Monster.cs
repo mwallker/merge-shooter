@@ -41,7 +41,7 @@ public class Monster : MonoBehaviour, IDamageable
         }
     }
 
-    public void AttackCore()
+    public void HitCore()
     {
         monsterAnimator.ResetTrigger("Hit");
         gameObject.SetActive(false);
@@ -49,10 +49,10 @@ public class Monster : MonoBehaviour, IDamageable
         Messaging<MonsterAttacksCoreEvent>.Trigger?.Invoke(currentHitPoints);
     }
 
-    public Monster AttackLine(int value)
+    public Monster SetAttackLine(int value)
     {
         Line = value;
-        transform.position = new Vector2(value * 2 - 5, 10);
+        transform.position = new Vector2(value * 2 - 5, 18);
 
         return this;
     }

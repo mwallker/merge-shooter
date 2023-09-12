@@ -18,5 +18,9 @@ public class GunPlatform : MonoBehaviour
         {
             installedGun = Messaging<GunBuildEvent>.Trigger?.Invoke(this);
         }
+        else
+        {
+            Messaging<GunUpgradeEvent>.Trigger?.Invoke(installedGun);
+        }
     }
 }

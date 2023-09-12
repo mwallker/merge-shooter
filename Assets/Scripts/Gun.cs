@@ -7,13 +7,13 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private Animator gunAnimator;
 
-    public readonly float AttackDamage = 1f;
+    public float AttackDamage { get; private set; }
 
-    public readonly float AttackSpeed = 1f;
+    public float AttackSpeed { get; private set; }
 
-    public readonly float AttackDistance = 14f;
+    public float AttackDistance { get; private set; }
 
-    public static readonly float Cost = 10;
+    public int Tier { get; private set; }
 
     private readonly float SHOOT_TIME = 0.1f;
 
@@ -24,6 +24,12 @@ public class Gun : MonoBehaviour
     public GunPlatform Platform { get; private set; }
 
     private Monster target;
+
+    [SerializeField]
+    private GameObject BaseSpriteReference;
+
+    [SerializeField]
+    private GameObject BarrelSpriteReference;
 
     void Awake()
     {
@@ -40,10 +46,28 @@ public class Gun : MonoBehaviour
         StopAllCoroutines();
     }
 
-    public void BuildAt(GunPlatform platform)
+    public void Build(GunPlatform platform)
     {
         Platform = platform;
         transform.SetPositionAndRotation(platform.transform.position, platform.transform.rotation);
+    }
+
+    public void Upgrade(GunTier tier)
+    {
+        AttackDamage = tier.Damage;
+        AttackDistance = tier.Distance;
+        AttackSpeed = tier.Speed;
+        Tier = tier.Id;
+
+        if (BaseSpriteReference.TryGetComponent<SpriteRenderer>(out var baseSprite))
+        {
+            baseSprite.sprite = tier.Base;
+        }
+
+        if (BarrelSpriteReference.TryGetComponent<SpriteRenderer>(out var barrelSprite))
+        {
+            barrelSprite.sprite = tier.Barrel;
+        }
     }
 
     private IEnumerator Attack()

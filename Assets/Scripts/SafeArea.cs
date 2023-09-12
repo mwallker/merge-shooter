@@ -6,8 +6,6 @@ public class SafeArea : MonoBehaviour
     {
         RectTransform uiArea = GetComponent<RectTransform>();
 
-        Debug.Log(uiArea.position);
-
         float scaleX = uiArea.sizeDelta.x / Screen.width;
         float scaleY = uiArea.sizeDelta.y / Screen.height;
 
@@ -20,5 +18,10 @@ public class SafeArea : MonoBehaviour
         uiArea.pivot = new Vector2(0.5f, 0);
         uiArea.sizeDelta = new Vector2(width, height);
         uiArea.anchoredPosition = new Vector2(deltaX, deltaY);
+
+        Debug.Log(Camera.main.aspect);
+        Debug.Log(Camera.main.fieldOfView);
+        Debug.Log(Camera.main.rect);
+        Debug.Log(Camera.main.orthographicSize);
     }
 }

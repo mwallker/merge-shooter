@@ -4,6 +4,8 @@ public delegate void GunShootEvent(Gun gun);
 
 public delegate Gun GunBuildEvent(GunPlatform platform);
 
+public delegate void GunUpgradeEvent(Gun platform);
+
 public delegate void MonsterDefeatedEvent(float reward);
 
 public delegate void MonsterAttacksCoreEvent(float damage);
