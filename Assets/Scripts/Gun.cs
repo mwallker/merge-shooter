@@ -1,11 +1,22 @@
 using System.Collections;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
     [SerializeField]
-    private Animator gunAnimator;
+    private Animator GunAnimator;
+
+    [SerializeField]
+    private SpriteRenderer BaseSpriteReference;
+
+    [SerializeField]
+    private SpriteRenderer BarrelSpriteReference;
+
+    [SerializeField]
+    private TextMeshProUGUI LevelLabelReference;
+
 
     public float AttackDamage { get; private set; }
 
@@ -24,17 +35,6 @@ public class Gun : MonoBehaviour
     public GunPlatform Platform { get; private set; }
 
     private Monster target;
-
-    [SerializeField]
-    private GameObject BaseSpriteReference;
-
-    [SerializeField]
-    private GameObject BarrelSpriteReference;
-
-    void Awake()
-    {
-        gunAnimator.speed = AttackSpeed;
-    }
 
     void Start()
     {
@@ -59,15 +59,18 @@ public class Gun : MonoBehaviour
         AttackSpeed = tier.Speed;
         Tier = tier.Id;
 
-        if (BaseSpriteReference.TryGetComponent<SpriteRenderer>(out var baseSprite))
+        if (tier.Base != null)
         {
-            baseSprite.sprite = tier.Base;
+            BaseSpriteReference.sprite = tier.Base;
         }
 
-        if (BarrelSpriteReference.TryGetComponent<SpriteRenderer>(out var barrelSprite))
+        if (tier.Barrel != null)
         {
-            barrelSprite.sprite = tier.Barrel;
+            BarrelSpriteReference.sprite = tier.Barrel;
         }
+
+        GunAnimator.speed = AttackSpeed;
+        LevelLabelReference.text = (Tier + 1).ToString();
     }
 
     private IEnumerator Attack()
@@ -82,14 +85,14 @@ public class Gun : MonoBehaviour
             if (target != null && !IsShooting)
             {
                 IsShooting = true;
-                gunAnimator.SetBool("IsShooting", true);
+                GunAnimator.SetBool("IsShooting", true);
 
                 Messaging<GunShootEvent>.Trigger?.Invoke(this);
 
                 yield return new WaitForSeconds(SHOOT_TIME / AttackSpeed);
 
                 IsShooting = false;
-                gunAnimator.SetBool("IsShooting", false);
+                GunAnimator.SetBool("IsShooting", false);
             }
 
             yield return new WaitForSeconds(AIMING_TIME / AttackSpeed);

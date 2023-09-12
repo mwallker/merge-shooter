@@ -5,13 +5,13 @@ public class Bullet : MonoBehaviour
 {
     private ObjectPool<Bullet> pool;
 
-    private Gun gun;
+    public float Damage { get; private set; }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<IDamageable>(out var target) && gun != null)
+        if (collision.gameObject.TryGetComponent<IDamageable>(out var target))
         {
-            target.TakeDamage(gun.AttackDamage);
+            target.TakeDamage(Damage);
         }
 
         pool.Release(this);
@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
 
     public void ShootFrom(Gun firedGun)
     {
-        gun = firedGun;
-        transform.SetPositionAndRotation(gun.transform.position, Quaternion.identity);
+        Damage = firedGun.AttackDamage;
+        transform.SetPositionAndRotation(firedGun.transform.position, Quaternion.identity);
     }
 }

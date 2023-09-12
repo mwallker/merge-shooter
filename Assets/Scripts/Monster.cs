@@ -13,7 +13,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     private readonly float maxHitPoints = 10f;
 
-    public float Speed { get; private set; } = 2f;
+    public float Speed { get; private set; } = 1f;
     public float Reward { get; private set; } = 5f;
     public float Line { get; private set; } = -1;
 

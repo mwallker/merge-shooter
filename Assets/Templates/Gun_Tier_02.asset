@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: Tier 2
   Id: 1
-  Damage: 1
-  Speed: 3
+  Damage: 2
+  Speed: 1
   Distance: 16
-  Cost: 2
+  Cost: 1
   Base: {fileID: 21300000, guid: 3e314494a072edc4783e9c9f53c2a1c9, type: 3}
   Barrel: {fileID: 21300000, guid: 4a410c8843e1ce74cb24eebeff3fb86d, type: 3}

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466b6701daa13064c961f12ddfb7e48b, type: 3}
   m_Name: Gun_Tier_04
   m_EditorClassIdentifier: 
-  Label: Tier #
+  Label: Tier 4
   Id: 3
   Damage: 1
   Speed: 1
   Distance: 14
-  Cost: 10
-  Base: {fileID: 0}
-  Barrel: {fileID: 0}
+  Cost: 1
+  Base: {fileID: 21300000, guid: b8b22bf1d240b57409f56a04d33639d2, type: 3}
+  Barrel: {fileID: 21300000, guid: 45a5d083511e26b4384320402f66ad7f, type: 3}

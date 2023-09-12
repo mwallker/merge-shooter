@@ -302,9 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5090eae0baddff6468b7f91624676276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunAnimator: {fileID: 738902904729981365}
-  BaseSpriteReference: {fileID: 179188159973628678}
-  BarrelSpriteReference: {fileID: 1056032132001948015}
+  GunAnimator: {fileID: 738902904729981365}
+  BaseSpriteReference: {fileID: 4866269941371282150}
+  BarrelSpriteReference: {fileID: 1557505366218346917}
+  LevelLabelReference: {fileID: 3404516276966010113}
 --- !u!95 &738902904729981365
 Animator:
   serializedVersion: 5
