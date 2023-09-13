@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Gun Tier", menuName = "Asset/Gun")]
-public class GunTier : ScriptableObject
+[CreateAssetMenu(fileName = "Gun_Tier_00", menuName = "Asset/Gun")]
+public class GunTierTemplate : ScriptableObject
 {
     public string Label = "Tier #";
 

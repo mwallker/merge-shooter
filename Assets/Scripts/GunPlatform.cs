@@ -2,25 +2,28 @@ using UnityEngine;
 
 public class GunPlatform : MonoBehaviour
 {
-    private Gun installedGun;
+    public Gun InstalledGun { get; private set; }
 
-    public int Line { get; private set; }
+    public int Line { get; set; }
 
-    public void AssignToLine(int line)
+    public void Install(Gun gun)
     {
-        Line = line;
+        if (InstalledGun == null)
+        {
+            InstalledGun = gun;
+        }
     }
 
     private void OnMouseDown()
     {
         // Install gun at platform
-        if (installedGun == null)
+        if (InstalledGun == null)
         {
-            installedGun = Messaging<GunBuildEvent>.Trigger?.Invoke(this);
+            Messaging<GunBuildEvent>.Trigger?.Invoke(this);
         }
         else
         {
-            Messaging<GunUpgradeEvent>.Trigger?.Invoke(installedGun);
+            Messaging<GunUpgradeEvent>.Trigger?.Invoke(InstalledGun);
         }
     }
 }

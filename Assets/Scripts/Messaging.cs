@@ -2,13 +2,15 @@ using System;
 
 public delegate void GunShootEvent(Gun gun);
 
-public delegate Gun GunBuildEvent(GunPlatform platform);
+public delegate void GunBuildEvent(GunPlatform platform);
 
 public delegate void GunUpgradeEvent(Gun platform);
 
-public delegate void MonsterDefeatedEvent(float reward);
+public delegate void MonsterDefeatedEvent(Monster monster);
 
-public delegate void MonsterAttacksCoreEvent(float damage);
+public delegate void MonsterHitCoreEvent(Monster monster);
+
+public delegate void LevelStateChangedEvent(LevelState phase);
 
 public static class Messaging<T> where T : Delegate
 {

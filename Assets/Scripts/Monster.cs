@@ -8,35 +8,34 @@ public class Monster : MonoBehaviour, IDamageable
     [SerializeField]
     private HealthBar healthBar;
 
+    public readonly float MaxHitPoints = 10f;
 
-    private float currentHitPoints = 10f;
+    public float HitPoints { get; private set; } = 10f;
 
-    private readonly float maxHitPoints = 10f;
-
-    public float Speed { get; private set; } = 1f;
+    public float Speed { get; private set; } = 3f;
     public float Reward { get; private set; } = 5f;
     public float Line { get; private set; } = -1;
 
     void Awake()
     {
         monsterAnimator.ResetTrigger("Hit");
-        healthBar.SetHitPoints(currentHitPoints, maxHitPoints);
+        healthBar.SetHitPoints(HitPoints, MaxHitPoints);
     }
 
     public void TakeDamage(float amount)
     {
         if (gameObject.activeSelf)
         {
-            currentHitPoints -= amount;
+            HitPoints -= amount;
             monsterAnimator.SetTrigger("Hit");
-            healthBar.SetHitPoints(currentHitPoints, maxHitPoints);
+            healthBar.SetHitPoints(HitPoints, MaxHitPoints);
 
-            if (currentHitPoints <= 0)
+            if (HitPoints <= 0)
             {
-                currentHitPoints = 0;
+                HitPoints = 0;
                 gameObject.SetActive(false);
 
-                Messaging<MonsterDefeatedEvent>.Trigger?.Invoke(Reward);
+                Messaging<MonsterDefeatedEvent>.Trigger?.Invoke(this);
             }
         }
     }
@@ -46,7 +45,7 @@ public class Monster : MonoBehaviour, IDamageable
         monsterAnimator.ResetTrigger("Hit");
         gameObject.SetActive(false);
 
-        Messaging<MonsterAttacksCoreEvent>.Trigger?.Invoke(currentHitPoints);
+        Messaging<MonsterHitCoreEvent>.Trigger?.Invoke(this);
     }
 
     public Monster SetAttackLine(int value)

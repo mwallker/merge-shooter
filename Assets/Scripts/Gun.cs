@@ -17,7 +17,6 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI LevelLabelReference;
 
-
     public float AttackDamage { get; private set; }
 
     public float AttackSpeed { get; private set; }
@@ -39,6 +38,11 @@ public class Gun : MonoBehaviour
     void Start()
     {
         StartCoroutine(Attack());
+
+        Messaging<LevelStateChangedEvent>.Register((state) =>
+        {
+            StopAllCoroutines();
+        });
     }
 
     void OnDisable()
@@ -52,7 +56,7 @@ public class Gun : MonoBehaviour
         transform.SetPositionAndRotation(platform.transform.position, platform.transform.rotation);
     }
 
-    public void Upgrade(GunTier tier)
+    public void Upgrade(GunTierTemplate tier)
     {
         AttackDamage = tier.Damage;
         AttackDistance = tier.Distance;

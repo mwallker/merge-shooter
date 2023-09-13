@@ -22,7 +22,7 @@ public class Grid : MonoBehaviour
         for (int i = 0; i < LinesCount; i++)
         {
             gunPlatforms[i] = Instantiate(gunPlatformPrefab, GetLinePosition(i), Quaternion.identity);
-            gunPlatforms[i].AssignToLine(i);
+            gunPlatforms[i].Line = i;
         }
     }
 
