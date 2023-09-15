@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level_00", menuName = "Asset/Level")]
@@ -9,9 +10,9 @@ public class LevelTemplate : ScriptableObject
 
     public float BaseCoins = 10f;
 
-    public int MonstersAmount = 10;
-
     public float MonsterSpawnRate = 1f;
 
     public int GunMaxTier = 1;
+
+    public List<MonsterTemplate> Monsters = new();
 }

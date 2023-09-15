@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb86fa796c724ec46918885767a0767c, type: 3}
+  m_Name: Monster_01
+  m_EditorClassIdentifier: 
+  Id: 0
+  HitPoints: 10
+  Speed: 2
+  Reward: 5
+  Body: {fileID: 21300000, guid: 438d086486fb83147b3c6a582213c705, type: 3}
+  Eyes: {fileID: 21300000, guid: 6305df28c6adb144db13980f30bde0ee, type: 3}
+  LeftHand: {fileID: 21300000, guid: 4d744ccfe6baf8343bf7c6035e613fab, type: 3}
+  RightHand: {fileID: 21300000, guid: 592714cee1282f048a08af25d946a73c, type: 3}
+  Mouth: {fileID: 21300000, guid: 177a8050ad4f521439211f07ff421040, type: 3}
+  ColorTint: {r: 0, g: 0, b: 0, a: 0}

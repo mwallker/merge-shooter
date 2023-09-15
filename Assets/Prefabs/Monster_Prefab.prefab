@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3835131727283890999}
   m_Layer: 7
-  m_Name: MonsterParts
+  m_Name: Parts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4896415573451017500}
   - component: {fileID: 4813585153320480432}
   m_Layer: 7
-  m_Name: body01
+  m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 7330306909230807896}
   - component: {fileID: 8723426888943850353}
   m_Layer: 7
-  m_Name: eye01
+  m_Name: eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 8407181528120253243}
   - component: {fileID: 4083726732536766591}
   m_Layer: 7
-  m_Name: hand01_right
+  m_Name: hand_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -736,8 +736,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08315c69ff4f4e4ea7c598495a86ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterAnimator: {fileID: 3552344693196804655}
-  healthBar: {fileID: 2292452616394580406}
+  MonsterAnimator: {fileID: 3552344693196804655}
+  HealthBarReference: {fileID: 2292452616394580406}
+  BodyReference: {fileID: 4813585153320480432}
+  EyesReference: {fileID: 8723426888943850353}
+  LeftHandReference: {fileID: 6687108374904776246}
+  RightHandReference: {fileID: 4083726732536766591}
+  MouthReference: {fileID: 3546808184674443296}
 --- !u!1 &6408118648875226649
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +754,7 @@ GameObject:
   - component: {fileID: 646228006054921266}
   - component: {fileID: 3546808184674443296}
   m_Layer: 7
-  m_Name: mouth02
+  m_Name: mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,7 +838,7 @@ GameObject:
   - component: {fileID: 6372525977414635450}
   - component: {fileID: 6687108374904776246}
   m_Layer: 7
-  m_Name: hand01_left
+  m_Name: hand_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

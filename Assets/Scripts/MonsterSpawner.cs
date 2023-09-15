@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
@@ -10,19 +10,13 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private float spawnInterval = 1.5f;
 
-    [SerializeField]
-    private int spawnAmount = 100;
-
-    private Monster[] monsters;
+    private readonly List<Monster> _spawnedMonsters = new();
 
     void Start()
     {
         StartCoroutine(SpawnMonsterWithInterval());
 
-        Messaging<LevelStateChangedEvent>.Register((state) =>
-        {
-            StopAllCoroutines();
-        });
+        Messaging<LevelStateChangedEvent>.Register((state) => StopAllCoroutines());
     }
 
     void OnDisable()
@@ -32,13 +26,36 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator SpawnMonsterWithInterval()
     {
-        monsters = new Monster[spawnAmount];
+        Debug.Log(Level.Instance.Monsters.Count);
 
-        for (int monsterIndex = 0; monsterIndex < spawnAmount; monsterIndex++)
+        for (int i = 0; i < Level.Instance.Monsters.Count; i++)
         {
-            monsters[monsterIndex] = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, Grid.LinesCount));
+            var parameters = Level.Instance.Monsters[i];
+            var monster = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, Grid.LinesCount)).SetParameters(parameters);
+
+            Debug.Log(monster);
+
+            _spawnedMonsters.Add(monster);
 
             yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (Level.Instance.CurrentState != LevelState.Idle)
+        {
+            return;
+        }
+
+        // Monster[] monsters = FindObjectsOfType<Monster>();
+
+        foreach (var monster in _spawnedMonsters)
+        {
+            if (monster.gameObject.activeSelf)
+            {
+                monster.transform.Translate(monster.Speed * Time.deltaTime * Vector2.down);
+            }
         }
     }
 }

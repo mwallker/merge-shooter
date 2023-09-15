@@ -19,7 +19,9 @@ public class Level : MonoBehaviour
 
     public float CurrentCoins { get; private set; }
 
-    public int DefeatedMonsters { get; private set; }
+    public int AliveMonsters { get; private set; }
+
+    public List<MonsterTemplate> Monsters { get; private set; }
 
     [SerializeField]
     private LevelTemplate Config;
@@ -29,6 +31,12 @@ public class Level : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI BaseHealthLabel;
+
+    [SerializeField]
+    private GameObject DefeatScreen;
+
+    [SerializeField]
+    private GameObject WinScreen;
 
     [SerializeField]
     private Gun gunPrefab;
@@ -45,6 +53,8 @@ public class Level : MonoBehaviour
 
         CurrentCoins = Config.BaseCoins;
         CurrentHealth = Config.BaseHealth;
+        AliveMonsters = Config.Monsters.Count;
+        Monsters = Config.Monsters;
 
         UpdateCoins();
         UpdateBaseHealth();
@@ -64,18 +74,6 @@ public class Level : MonoBehaviour
         Messaging<GunUpgradeEvent>.Unregister(OnGunUpgrade);
         Messaging<MonsterDefeatedEvent>.Unregister(OnMonsterDefeated);
         Messaging<MonsterHitCoreEvent>.Unregister(OnMonsterHitCore);
-    }
-
-    private void TransitionToFiniteState(LevelState targetPhase)
-    {
-        if (CurrentState != targetPhase && CurrentState == LevelState.Idle)
-        {
-            CurrentState = targetPhase;
-
-            Messaging<LevelStateChangedEvent>.Trigger?.Invoke(CurrentState);
-
-            Stop();
-        }
     }
 
     private GunTierTemplate GetTierById(int tierId)
@@ -133,12 +131,9 @@ public class Level : MonoBehaviour
     private void OnMonsterDefeated(Monster monster)
     {
         CurrentCoins += monster.Reward;
-        DefeatedMonsters++;
+        AliveMonsters--;
 
-        if (DefeatedMonsters >= Config.MonstersAmount)
-        {
-            TransitionToFiniteState(LevelState.Completed);
-        }
+        IsCompleted();
 
         UpdateCoins();
     }
@@ -146,13 +141,44 @@ public class Level : MonoBehaviour
     private void OnMonsterHitCore(Monster monster)
     {
         CurrentHealth -= monster.HitPoints;
-        DefeatedMonsters++;
+        AliveMonsters--;
+
+        IsCompleted();
+
+        UpdateBaseHealth();
+    }
+
+    private bool IsCompleted()
+    {
+        if (CurrentState != LevelState.Idle)
+        {
+            return true;
+        }
+
+        LevelState targetState = CurrentState;
 
         if (CurrentHealth <= 0)
         {
-            TransitionToFiniteState(LevelState.Failed);
+            targetState = LevelState.Failed;
+            DefeatScreen.SetActive(true);
+        }
+        else if (AliveMonsters <= 0)
+        {
+            targetState = LevelState.Completed;
+            WinScreen.SetActive(true);
         }
 
-        UpdateBaseHealth();
+        if (CurrentState != targetState)
+        {
+            CurrentState = targetState;
+
+            Messaging<LevelStateChangedEvent>.Trigger?.Invoke(CurrentState);
+
+            Stop();
+
+            return true;
+        }
+
+        return false;
     }
 }

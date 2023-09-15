@@ -42,6 +42,7 @@ public class Gun : MonoBehaviour
         Messaging<LevelStateChangedEvent>.Register((state) =>
         {
             StopAllCoroutines();
+            GunAnimator.SetBool("IsShooting", false);
         });
     }
 
