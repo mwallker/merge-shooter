@@ -48,7 +48,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -82,7 +82,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -116,7 +116,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MonsterParts/eye01
+    path: Parts/eyes
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -151,7 +151,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MonsterParts/eye01
+    path: Parts/eyes
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -185,7 +185,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MonsterParts/mouth02
+    path: Parts/mouth
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -219,7 +219,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MonsterParts/body01
+    path: Parts/body
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -235,7 +235,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MonsterParts/shade
+    path: Parts/shade
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -272,7 +272,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -311,7 +311,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -350,7 +350,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -380,7 +380,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -419,7 +419,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -458,7 +458,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -497,7 +497,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -536,7 +536,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -575,7 +575,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -614,7 +614,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -653,7 +653,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -692,7 +692,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -731,7 +731,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -770,7 +770,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -809,7 +809,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -839,7 +839,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -878,7 +878,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -917,7 +917,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -956,7 +956,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1259,7 +1259,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1298,7 +1298,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1337,7 +1337,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1367,7 +1367,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1406,7 +1406,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1445,7 +1445,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1484,7 +1484,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1523,7 +1523,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1562,7 +1562,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1601,7 +1601,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1640,7 +1640,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1679,7 +1679,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1718,7 +1718,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1757,7 +1757,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1796,7 +1796,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1826,7 +1826,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1865,7 +1865,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1904,7 +1904,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1943,7 +1943,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -1982,7 +1982,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2021,7 +2021,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2060,7 +2060,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: MonsterParts/hand01_left
+    path: Parts/hand_left
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2099,7 +2099,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2138,7 +2138,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2177,7 +2177,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: MonsterParts/hand01_right
+    path: Parts/hand_right
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2216,7 +2216,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2255,7 +2255,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2294,7 +2294,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2333,7 +2333,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2372,7 +2372,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2411,7 +2411,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: MonsterParts/eye01
+    path: Parts/eyes
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2450,7 +2450,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2489,7 +2489,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2528,7 +2528,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: MonsterParts/mouth02
+    path: Parts/mouth
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2567,7 +2567,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2606,7 +2606,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2645,7 +2645,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: MonsterParts/body01
+    path: Parts/body
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2666,7 +2666,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: MonsterParts/shade
+    path: Parts/shade
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2687,7 +2687,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: MonsterParts/shade
+    path: Parts/shade
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -2708,7 +2708,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: MonsterParts/shade
+    path: Parts/shade
     classID: 4
     script: {fileID: 0}
     flags: 0

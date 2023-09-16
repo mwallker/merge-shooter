@@ -20,6 +20,4 @@ public class MonsterTemplate : ScriptableObject
     public Sprite RightHand;
 
     public Sprite Mouth;
-
-    public Color ColorTint;
 }

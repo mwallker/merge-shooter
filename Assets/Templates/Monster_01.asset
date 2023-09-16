@@ -21,4 +21,4 @@ MonoBehaviour:
   LeftHand: {fileID: 21300000, guid: 4d744ccfe6baf8343bf7c6035e613fab, type: 3}
   RightHand: {fileID: 21300000, guid: 592714cee1282f048a08af25d946a73c, type: 3}
   Mouth: {fileID: 21300000, guid: 177a8050ad4f521439211f07ff421040, type: 3}
-  ColorTint: {r: 0, g: 0, b: 0, a: 0}
+  ColorTint: {r: 0.25882354, g: 0.6039216, b: 0.7843138, a: 1}
