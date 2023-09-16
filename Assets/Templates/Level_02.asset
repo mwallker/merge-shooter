@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3403286b3901a3e40a488cf4a03f3dfe, type: 3}
   m_Name: Level_02
   m_EditorClassIdentifier: 
-  Id: 1
-  MonstersAmount: 10
+  Id: 2
+  BaseHealth: 100
+  BaseCoins: 10
   MonsterSpawnRate: 1
   GunMaxTier: 3
+  Monsters:
+  - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}

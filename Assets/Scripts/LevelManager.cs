@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,9 +8,11 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
     [SerializeField]
-    private TextMeshProUGUI _loadingScreen;
+    private TextMeshProUGUI loadingScreen;
 
-    void Start()
+    public LevelTemplate SelectedLevel { get; private set; }
+
+    void Awake()
     {
         if (Instance == null)
         {
@@ -23,17 +25,42 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public async void LoadScene(string name)
+    // public async void LoadScene(string name)
+    // {
+    //     var scene = SceneManager.LoadSceneAsync(name);
+    //     scene.allowSceneActivation = false;
+
+    //     _loadingScreen.gameObject.SetActive(true);
+
+    //     do
+    //     {
+    //         await Task.Delay(100);
+    //         Debug.Log(scene.progress);
+    //     } while (scene.progress < 0.9f);
+    // }
+
+    public void LoadMainMenuScene()
     {
-        var scene = SceneManager.LoadSceneAsync(name);
-        scene.allowSceneActivation = false;
+        SceneManager.LoadScene("MainMenu");
+    }
 
-        _loadingScreen.gameObject.SetActive(true);
+    public void LoadStageSelectionScene()
+    {
+        SceneManager.LoadScene("StageSelection");
+    }
 
-        do
+    public void LoadLevelScene(LevelTemplate level)
+    {
+        if (level != null)
         {
-            await Task.Delay(100);
-            Debug.Log(scene.progress);
-        } while (scene.progress < 0.9f);
+            SelectedLevel = level;
+
+            SceneManager.LoadScene("Level");
+        }
+    }
+
+    public void RestartLevelScene()
+    {
+        SceneManager.LoadScene("Level");
     }
 }

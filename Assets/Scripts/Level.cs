@@ -24,9 +24,6 @@ public class Level : MonoBehaviour
     public List<MonsterTemplate> Monsters { get; private set; }
 
     [SerializeField]
-    private LevelTemplate Config;
-
-    [SerializeField]
     private TextMeshProUGUI CoinsCounterLabel;
 
     [SerializeField]
@@ -51,10 +48,10 @@ public class Level : MonoBehaviour
             Instance = this;
         }
 
-        CurrentCoins = Config.BaseCoins;
-        CurrentHealth = Config.BaseHealth;
-        AliveMonsters = Config.Monsters.Count;
-        Monsters = Config.Monsters;
+        CurrentCoins = LevelManager.Instance.SelectedLevel.BaseCoins;
+        CurrentHealth = LevelManager.Instance.SelectedLevel.BaseHealth;
+        AliveMonsters = LevelManager.Instance.SelectedLevel.Monsters.Count;
+        Monsters = LevelManager.Instance.SelectedLevel.Monsters;
 
         UpdateCoins();
         UpdateBaseHealth();

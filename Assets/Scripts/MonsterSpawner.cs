@@ -48,8 +48,6 @@ public class MonsterSpawner : MonoBehaviour
             return;
         }
 
-        // Monster[] monsters = FindObjectsOfType<Monster>();
-
         foreach (var monster in _spawnedMonsters)
         {
             if (monster.gameObject.activeSelf)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3403286b3901a3e40a488cf4a03f3dfe, type: 3}
   m_Name: Level_01
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1
   BaseHealth: 100
   BaseCoins: 10
   MonsterSpawnRate: 1
