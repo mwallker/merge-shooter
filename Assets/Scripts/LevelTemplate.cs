@@ -12,7 +12,9 @@ public class LevelTemplate : ScriptableObject
 
     public float MonsterSpawnRate = 1f;
 
-    public int GunMaxTier = 1;
+    public int MaxGunTier = 1;
 
     public List<MonsterTemplate> Monsters = new();
+
+    public int[] ScoreLimits = new int[3] { 0, 1, 2 };
 }

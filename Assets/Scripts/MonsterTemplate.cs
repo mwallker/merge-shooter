@@ -11,6 +11,8 @@ public class MonsterTemplate : ScriptableObject
 
     public float Reward = 5f;
 
+    public int Score = 10;
+
     public Sprite Body;
 
     public Sprite Eyes;

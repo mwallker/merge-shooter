@@ -3,7 +3,12 @@ guid: bb86fa796c724ec46918885767a0767c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Body: {fileID: 21300000, guid: 438d086486fb83147b3c6a582213c705, type: 3}
+  - Eyes: {instanceID: 0}
+  - LeftHand: {instanceID: 0}
+  - RightHand: {instanceID: 0}
+  - Mouth: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

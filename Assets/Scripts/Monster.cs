@@ -29,6 +29,9 @@ public class Monster : MonoBehaviour, IDamageable
 
     public float Speed { get; private set; } = 1f;
     public float Reward { get; private set; } = 1f;
+
+    public int Score { get; private set; } = 10;
+
     public float Line { get; private set; } = -1;
 
     void Awake()
@@ -74,6 +77,7 @@ public class Monster : MonoBehaviour, IDamageable
     {
         Speed = parameters.Speed;
         Reward = parameters.Reward;
+        Score = parameters.Score;
         MaxHitPoints = HitPoints = parameters.HitPoints;
 
         BodyReference.sprite = parameters.Body;

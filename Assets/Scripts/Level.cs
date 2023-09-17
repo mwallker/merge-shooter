@@ -21,6 +21,14 @@ public class Level : MonoBehaviour
 
     public int AliveMonsters { get; private set; }
 
+    public int MaxGunTier { get; private set; }
+
+    public int Score { get; private set; }
+
+    public int[] ScoreLimits { get; private set; }
+
+    private readonly int BaseLevelScore = 10;
+
     public List<MonsterTemplate> Monsters { get; private set; }
 
     [SerializeField]
@@ -52,6 +60,8 @@ public class Level : MonoBehaviour
         CurrentHealth = LevelManager.Instance.SelectedLevel.BaseHealth;
         AliveMonsters = LevelManager.Instance.SelectedLevel.Monsters.Count;
         Monsters = LevelManager.Instance.SelectedLevel.Monsters;
+        MaxGunTier = LevelManager.Instance.SelectedLevel.MaxGunTier;
+        ScoreLimits = LevelManager.Instance.SelectedLevel.ScoreLimits;
 
         UpdateCoins();
         UpdateBaseHealth();
@@ -115,7 +125,7 @@ public class Level : MonoBehaviour
     {
         GunTierTemplate tier = GetTierById(gun.Tier + 1);
 
-        if (tier != null && tier.Cost <= CurrentCoins)
+        if (tier != null && tier.Cost <= CurrentCoins && gun.Tier != MaxGunTier)
         {
             gun.Upgrade(tier);
 
@@ -128,6 +138,7 @@ public class Level : MonoBehaviour
     private void OnMonsterDefeated(Monster monster)
     {
         CurrentCoins += monster.Reward;
+        Score += monster.Score;
         AliveMonsters--;
 
         IsCompleted();
@@ -162,6 +173,7 @@ public class Level : MonoBehaviour
         else if (AliveMonsters <= 0)
         {
             targetState = LevelState.Completed;
+            Score += BaseLevelScore;
             WinScreen.SetActive(true);
         }
 

@@ -26,14 +26,10 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator SpawnMonsterWithInterval()
     {
-        Debug.Log(Level.Instance.Monsters.Count);
-
         for (int i = 0; i < Level.Instance.Monsters.Count; i++)
         {
             var parameters = Level.Instance.Monsters[i];
             var monster = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, Grid.LinesCount)).SetParameters(parameters);
-
-            Debug.Log(monster);
 
             _spawnedMonsters.Add(monster);
 
