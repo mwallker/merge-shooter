@@ -194,7 +194,24 @@ public class Level : MonoBehaviour
 
     private void SaveScores()
     {
-        PlayerPrefs.SetInt(LevelManager.Instance.SelectedLevel.Id.ToString(), Score);
-        PlayerPrefs.Save();
+        if (IsNewRecord())
+        {
+            PlayerPrefs.SetInt(LevelManager.Instance.SelectedLevel.Id.ToString(), Score);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private bool IsNewRecord()
+    {
+        int id = LevelManager.Instance.SelectedLevel.Id;
+
+        if (PlayerPrefs.HasKey(id.ToString()))
+        {
+            int currentScore = PlayerPrefs.GetInt(id.ToString());
+
+            return Score > currentScore;
+        }
+
+        return true;
     }
 }

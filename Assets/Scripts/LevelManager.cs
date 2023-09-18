@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +10,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI loadingScreen;
 
-    public LevelTemplate SelectedLevel { get; private set; }
+    [SerializeField]
+    private List<LevelConfig> levels = new();
+
+    public LevelConfig SelectedLevel { get; private set; }
 
     void Awake()
     {
@@ -24,20 +28,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // public async void LoadScene(string name)
-    // {
-    //     var scene = SceneManager.LoadSceneAsync(name);
-    //     scene.allowSceneActivation = false;
-
-    //     _loadingScreen.gameObject.SetActive(true);
-
-    //     do
-    //     {
-    //         await Task.Delay(100);
-    //         Debug.Log(scene.progress);
-    //     } while (scene.progress < 0.9f);
-    // }
-
     public void LoadMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu");
@@ -48,7 +38,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("StageSelection");
     }
 
-    public void LoadLevelScene(LevelTemplate level)
+    public void LoadLevelScene(LevelConfig level)
     {
         if (level != null)
         {
@@ -63,21 +53,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Level");
     }
 
-    public int GetScore()
+    public List<LevelConfig> GetList()
     {
-        if (PlayerPrefs.HasKey(SelectedLevel.Id.ToString()))
-        {
-            // var scores = PlayerPrefs.GetString("scores");
-            // var data = JsonUtility.FromJson<LevelData>(scores);
-
-            // Debug.Log(data.scores);
-            // Debug.Log(data);
-
-            // return data.scores.GetValueOrDefault(SelectedLevel.Id, 0);
-
-            return PlayerPrefs.GetInt(SelectedLevel.Id.ToString());
-        }
-
-        return 0;
+        return levels;
     }
 }

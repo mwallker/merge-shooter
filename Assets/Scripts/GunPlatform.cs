@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class GunPlatform : MonoBehaviour
+public class GunPlatform : MonoBehaviour, IPointerDownHandler
 {
     public Gun InstalledGun { get; private set; }
 
@@ -14,7 +15,7 @@ public class GunPlatform : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
         // Install gun at platform
         if (InstalledGun == null)

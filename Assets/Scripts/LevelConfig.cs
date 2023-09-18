@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level_00", menuName = "Asset/Level")]
-public class LevelTemplate : ScriptableObject
+public class LevelConfig : ScriptableObject
 {
     public int Id = 0;
+
+    public int PreviousId = -1;
 
     public float BaseHealth = 100f;
 

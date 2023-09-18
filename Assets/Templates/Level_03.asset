@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level_03
   m_EditorClassIdentifier: 
   Id: 3
+  PreviousId: 2
   BaseHealth: 100
   BaseCoins: 10
   MonsterSpawnRate: 1
