@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Boundary
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -12,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Bullet
-  - Monster
-  - Bounds
-  - Core
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -41,19 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 3095958241
-    locked: 0
-  - name: Grid
-    uniqueID: 3573254813
-    locked: 0
-  - name: Gun
-    uniqueID: 2984185863
-    locked: 0
-  - name: Enemies
-    uniqueID: 2839454017
-    locked: 0
-  - name: UI
-    uniqueID: 3833935451
     locked: 0
