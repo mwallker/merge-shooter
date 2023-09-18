@@ -6,15 +6,13 @@ public class Star : MonoBehaviour
     [SerializeField]
     private Image foregroundReference;
 
-    void Start()
-    {
-
-    }
-
     public void Fill()
     {
-        // foregroundReference.color = ;
+        foregroundReference.gameObject.SetActive(true);
+    }
 
-
+    public void Clear()
+    {
+        foregroundReference.gameObject.SetActive(false);
     }
 }

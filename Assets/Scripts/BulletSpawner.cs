@@ -12,15 +12,9 @@ public class BulletSpawner : MonoBehaviour
     {
         bulletsPool = new ObjectPool<Bullet>(CreateBullet, GetBullet, ReleaseBullet, DestroyBullet, true, 100, 200);
 
-        Messaging<GunShootEvent>.Register((gun) =>
-        {
-            bulletsPool.Get(out var bullet);
+        Messaging<GunShootEvent>.Register(HandleShoot);
 
-            if (bullet != null)
-            {
-                bullet.ShootFrom(gun);
-            }
-        });
+        Messaging<LevelStateChangedEvent>.Register(HandleStateChange);
     }
 
     private Bullet CreateBullet()
@@ -56,5 +50,20 @@ public class BulletSpawner : MonoBehaviour
     private void DestroyBullet(Bullet bullet)
     {
         bullet.gameObject.SetActive(false);
+    }
+
+    private void HandleShoot(Gun gun)
+    {
+        bulletsPool.Get(out var bullet);
+
+        if (bullet != null)
+        {
+            bullet.ShootFrom(gun);
+        }
+    }
+
+    private void HandleStateChange(LevelState state)
+    {
+
     }
 }

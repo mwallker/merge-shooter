@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -62,5 +61,23 @@ public class LevelManager : MonoBehaviour
     public void RestartLevelScene()
     {
         SceneManager.LoadScene("Level");
+    }
+
+    public int GetScore()
+    {
+        if (PlayerPrefs.HasKey(SelectedLevel.Id.ToString()))
+        {
+            // var scores = PlayerPrefs.GetString("scores");
+            // var data = JsonUtility.FromJson<LevelData>(scores);
+
+            // Debug.Log(data.scores);
+            // Debug.Log(data);
+
+            // return data.scores.GetValueOrDefault(SelectedLevel.Id, 0);
+
+            return PlayerPrefs.GetInt(SelectedLevel.Id.ToString());
+        }
+
+        return 0;
     }
 }

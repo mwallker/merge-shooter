@@ -16,6 +16,7 @@ MonoBehaviour:
   BaseHealth: 100
   BaseCoins: 10
   MonsterSpawnRate: 1
-  GunMaxTier: 3
+  MaxGunTier: 3
   Monsters:
   - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}
+  ScoreLimits: 0a0000001e00000064000000

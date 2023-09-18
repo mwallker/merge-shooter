@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: Level
       value: 
       objectReference: {fileID: 11400000, guid: 7d3e2809a37955840bfb613d54755f19, type: 2}
+    - target: {fileID: 3240775560136374731, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
+      propertyPath: LevelConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d3e2809a37955840bfb613d54755f19, type: 2}
     - target: {fileID: 4691415207261268520, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
       propertyPath: m_Name
       value: StageButton (2)
@@ -333,6 +337,10 @@ PrefabInstance:
       propertyPath: Level
       value: 
       objectReference: {fileID: 11400000, guid: 32aff6a0c4786134abf43e63fc7cb90e, type: 2}
+    - target: {fileID: 3240775560136374731, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
+      propertyPath: LevelConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 32aff6a0c4786134abf43e63fc7cb90e, type: 2}
     - target: {fileID: 4691415207261268520, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
       propertyPath: m_Name
       value: StageButton
@@ -418,7 +426,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7797722008338776964, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
+    - {fileID: 316853773553232235, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
+    - {fileID: 1880723532682581733, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
@@ -615,6 +626,10 @@ PrefabInstance:
       propertyPath: Level
       value: 
       objectReference: {fileID: 11400000, guid: 1bf3342746e5f2546ad4847321c5b789, type: 2}
+    - target: {fileID: 3240775560136374731, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
+      propertyPath: LevelConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bf3342746e5f2546ad4847321c5b789, type: 2}
     - target: {fileID: 4691415207261268520, guid: 3d45d06b8a380c046a54ef865a4a66d9, type: 3}
       propertyPath: m_Name
       value: StageButton (1)
@@ -722,7 +737,7 @@ GameObject:
   - component: {fileID: 1870551339}
   - component: {fileID: 1870551338}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -182,12 +183,18 @@ public class Level : MonoBehaviour
             CurrentState = targetState;
 
             Messaging<LevelStateChangedEvent>.Trigger?.Invoke(CurrentState);
-
+            SaveScores();
             Stop();
 
             return true;
         }
 
         return false;
+    }
+
+    private void SaveScores()
+    {
+        PlayerPrefs.SetInt(LevelManager.Instance.SelectedLevel.Id.ToString(), Score);
+        PlayerPrefs.Save();
     }
 }

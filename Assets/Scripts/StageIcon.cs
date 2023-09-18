@@ -8,17 +8,46 @@ public class StageIcon : MonoBehaviour
     private TextMeshProUGUI StageNumberReference;
 
     [SerializeField]
-    private LevelTemplate Level;
+    private LevelTemplate LevelConfig;
+
+    [SerializeField]
+    private Star LeftStarReference;
+
+    [SerializeField]
+    private Star MiddleStarReference;
+
+    [SerializeField]
+    private Star RightStarReference;
 
     private Button _button;
 
     void Awake()
     {
-        if (Level != null)
+        if (LevelConfig != null)
         {
-            StageNumberReference.text = Level.Id.ToString();
+            StageNumberReference.text = LevelConfig.Id.ToString();
+
+            int score = GetScore();
+
+            Debug.Log(score);
+
+            if (score >= LevelConfig.ScoreLimits[0])
+            {
+                LeftStarReference.Fill();
+            }
+
+            if (score >= LevelConfig.ScoreLimits[1])
+            {
+                MiddleStarReference.Fill();
+            }
+
+            if (score >= LevelConfig.ScoreLimits[2])
+            {
+                RightStarReference.Fill();
+            }
 
             _button = GetComponent<Button>();
+            _button.interactable = score != 0;
             _button.onClick.AddListener(HandleStageSelected);
         }
     }
@@ -26,10 +55,24 @@ public class StageIcon : MonoBehaviour
     void OnDisable()
     {
         _button.onClick.RemoveAllListeners();
+
+        LeftStarReference.Clear();
+        MiddleStarReference.Clear();
+        LeftStarReference.Clear();
     }
 
     private void HandleStageSelected()
     {
-        LevelManager.Instance.LoadLevelScene(Level);
+        LevelManager.Instance.LoadLevelScene(LevelConfig);
+    }
+
+    private int GetScore()
+    {
+        if (LevelConfig != null && PlayerPrefs.HasKey(LevelConfig.Id.ToString()))
+        {
+            return PlayerPrefs.GetInt(LevelConfig.Id.ToString());
+        }
+
+        return 0;
     }
 }

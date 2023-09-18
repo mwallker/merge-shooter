@@ -9,13 +9,13 @@ public class WinScreen : MonoBehaviour
     private Button continueButton;
 
     [SerializeField]
-    private Image leftStarReference;
+    private Star leftStarReference;
 
     [SerializeField]
-    private Image middleStarReference;
+    private Star middleStarReference;
 
     [SerializeField]
-    private Image rightStarReference;
+    private Star rightStarReference;
 
     [SerializeField]
     private TextMeshProUGUI scoreReference;
@@ -27,40 +27,45 @@ public class WinScreen : MonoBehaviour
 
     void OnEnable()
     {
-        StartCoroutine(ScoreCounter());
-
         scoreReference.text = Level.Instance.Score.ToString();
+
+        StartCoroutine(ScoreCounter());
     }
 
     private void HandleStageSelected()
     {
-        LevelManager.Instance.RestartLevelScene();
+        LevelManager.Instance.LoadStageSelectionScene();
     }
 
     private IEnumerator ScoreCounter()
     {
-        int currentScore = 0;
+        float elapsedTime = 0.0f;
+        float duration = 2f;
 
-        while (currentScore <= Level.Instance.Score)
+        while (elapsedTime < duration)
         {
+            int currentScore = Mathf.RoundToInt(elapsedTime / duration * Level.Instance.Score);
+            elapsedTime += Time.deltaTime;
             scoreReference.text = currentScore.ToString();
 
             if (currentScore == Level.Instance.ScoreLimits[0])
             {
-                leftStarReference.gameObject.SetActive(true);
-            }
-            else if (currentScore == Level.Instance.ScoreLimits[1])
-            {
-                middleStarReference.gameObject.SetActive(true);
-            }
-            else if (currentScore == Level.Instance.ScoreLimits[2])
-            {
-                rightStarReference.gameObject.SetActive(true);
+                leftStarReference.Fill();
             }
 
-            yield return new WaitForEndOfFrame();
+            if (currentScore == Level.Instance.ScoreLimits[1])
+            {
+                middleStarReference.Fill();
+            }
 
-            currentScore++;
+            if (currentScore == Level.Instance.ScoreLimits[2])
+            {
+                rightStarReference.Fill();
+            }
+
+            yield return null;
         }
+
+        scoreReference.text = Level.Instance.Score.ToString();
     }
 }
