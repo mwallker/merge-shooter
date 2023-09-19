@@ -48,17 +48,17 @@ public class WinScreen : MonoBehaviour
             elapsedTime += Time.deltaTime;
             scoreReference.text = currentScore.ToString();
 
-            if (currentScore == Level.Instance.ScoreLimits[0])
+            if (currentScore == LevelManager.Instance.SelectedLevel.ScoreLimits[0])
             {
                 leftStarReference.Fill();
             }
 
-            if (currentScore == Level.Instance.ScoreLimits[1])
+            if (currentScore == LevelManager.Instance.SelectedLevel.ScoreLimits[1])
             {
                 middleStarReference.Fill();
             }
 
-            if (currentScore == Level.Instance.ScoreLimits[2])
+            if (currentScore == LevelManager.Instance.SelectedLevel.ScoreLimits[2])
             {
                 rightStarReference.Fill();
             }

@@ -26,7 +26,7 @@ public class Level : MonoBehaviour
 
     public int Score { get; private set; }
 
-    public int[] ScoreLimits { get; private set; }
+    // public int[] ScoreLimits { get; private set; }
 
     private readonly int BaseLevelScore = 10;
 
@@ -60,9 +60,9 @@ public class Level : MonoBehaviour
         CurrentCoins = LevelManager.Instance.SelectedLevel.BaseCoins;
         CurrentHealth = LevelManager.Instance.SelectedLevel.BaseHealth;
         AliveMonsters = LevelManager.Instance.SelectedLevel.Monsters.Count;
-        Monsters = LevelManager.Instance.SelectedLevel.Monsters;
         MaxGunTier = LevelManager.Instance.SelectedLevel.MaxGunTier;
-        ScoreLimits = LevelManager.Instance.SelectedLevel.ScoreLimits;
+        // Monsters = LevelManager.Instance.SelectedLevel.Monsters;
+        // ScoreLimits = LevelManager.Instance.SelectedLevel.ScoreLimits;
 
         UpdateCoins();
         UpdateBaseHealth();
@@ -82,6 +82,11 @@ public class Level : MonoBehaviour
         Messaging<GunUpgradeEvent>.Unregister(OnGunUpgrade);
         Messaging<MonsterDefeatedEvent>.Unregister(OnMonsterDefeated);
         Messaging<MonsterHitCoreEvent>.Unregister(OnMonsterHitCore);
+    }
+
+    void OnDisable()
+    {
+        Instance = null;
     }
 
     private GunTierTemplate GetTierById(int tierId)
@@ -126,7 +131,7 @@ public class Level : MonoBehaviour
     {
         GunTierTemplate tier = GetTierById(gun.Tier + 1);
 
-        if (tier != null && tier.Cost <= CurrentCoins && gun.Tier != MaxGunTier)
+        if (tier != null && tier.Cost <= CurrentCoins && gun.Tier < MaxGunTier)
         {
             gun.Upgrade(tier);
 
@@ -143,7 +148,6 @@ public class Level : MonoBehaviour
         AliveMonsters--;
 
         IsCompleted();
-
         UpdateCoins();
     }
 
@@ -153,7 +157,6 @@ public class Level : MonoBehaviour
         AliveMonsters--;
 
         IsCompleted();
-
         UpdateBaseHealth();
     }
 

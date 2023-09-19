@@ -14,22 +14,17 @@ public class MonsterSpawner : MonoBehaviour
 
     void Start()
     {
+        // Messaging<LevelStateChangedEvent>.Register((state) => StopAllCoroutines());
+
         StartCoroutine(SpawnMonsterWithInterval());
-
-        Messaging<LevelStateChangedEvent>.Register((state) => StopAllCoroutines());
-    }
-
-    void OnDisable()
-    {
-        StopAllCoroutines();
     }
 
     private IEnumerator SpawnMonsterWithInterval()
     {
-        for (int i = 0; i < Level.Instance.Monsters.Count; i++)
+        for (int i = 0; i < LevelManager.Instance.SelectedLevel.Monsters.Count; i++)
         {
-            var parameters = Level.Instance.Monsters[i];
-            var monster = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, Grid.LinesCount)).SetParameters(parameters);
+            var parameters = LevelManager.Instance.SelectedLevel.Monsters[i];
+            var monster = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, PlatformGrid.LinesCount)).SetParameters(parameters);
 
             _spawnedMonsters.Add(monster);
 

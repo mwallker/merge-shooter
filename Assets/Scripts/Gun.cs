@@ -39,16 +39,14 @@ public class Gun : MonoBehaviour
     {
         StartCoroutine(Attack());
 
-        Messaging<LevelStateChangedEvent>.Register((state) =>
-        {
-            StopAllCoroutines();
-            GunAnimator.SetBool("IsShooting", false);
-        });
+        Messaging<LevelStateChangedEvent>.Register(HandleLevelStateChange);
     }
 
     void OnDisable()
     {
         StopAllCoroutines();
+
+        Messaging<LevelStateChangedEvent>.Unregister(HandleLevelStateChange);
     }
 
     public void Build(GunPlatform platform)
@@ -102,6 +100,12 @@ public class Gun : MonoBehaviour
 
             yield return new WaitForSeconds(AIMING_TIME / AttackSpeed);
         }
+    }
+
+    private void HandleLevelStateChange(LevelState state)
+    {
+        StopAllCoroutines();
+        GunAnimator.SetBool("IsShooting", false);
     }
 
     private bool IsMonsterInRange(Monster monster)

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class PlatformGrid : MonoBehaviour
 {
     public static readonly int LinesCount = 6;
     public static readonly float Width = 2;

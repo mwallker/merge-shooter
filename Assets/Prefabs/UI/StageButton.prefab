@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6990141220181779243}
   - component: {fileID: 2978526867070349409}
   - component: {fileID: 3240775560136374731}
-  - component: {fileID: 4063272999424047380}
   m_Layer: 5
   m_Name: StageButton
   m_TagString: Untagged
@@ -142,27 +141,6 @@ MonoBehaviour:
   LeftStarReference: {fileID: 1430305646112936934}
   MiddleStarReference: {fileID: 1387583159079260840}
   RightStarReference: {fileID: 4712427357126070180}
---- !u!95 &4063272999424047380
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4691415207261268520}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9b8412dec716824498435a63330644e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8611834612808535379
 GameObject:
   m_ObjectHideFlags: 0
