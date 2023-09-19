@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb86fa796c724ec46918885767a0767c, type: 3}
-  m_Name: Monster_01
+  m_Name: Monster_03
   m_EditorClassIdentifier: 
-  Id: 1
-  HitPoints: 10
-  Speed: 2
-  Reward: 5
+  Id: 3
+  HitPoints: 50
+  Speed: 1
+  Reward: 15
   Score: 10
-  Body: {fileID: 21300000, guid: 438d086486fb83147b3c6a582213c705, type: 3}
-  Eyes: {fileID: 21300000, guid: 6305df28c6adb144db13980f30bde0ee, type: 3}
+  Body: {fileID: 21300000, guid: c4beb03378c5af74fb52bb6bb477c5ad, type: 3}
+  Eyes: {fileID: 21300000, guid: 962c4a3fe197c5643a8383a41270ebb5, type: 3}
   LeftHand: {fileID: 21300000, guid: 4d744ccfe6baf8343bf7c6035e613fab, type: 3}
   RightHand: {fileID: 21300000, guid: 592714cee1282f048a08af25d946a73c, type: 3}
-  Mouth: {fileID: 21300000, guid: 177a8050ad4f521439211f07ff421040, type: 3}
+  Mouth: {fileID: 21300000, guid: ca8cb1462ad794043b20dee77a64f6c8, type: 3}

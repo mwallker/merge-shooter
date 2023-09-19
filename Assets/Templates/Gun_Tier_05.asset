@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Gun_Tier_05
   m_EditorClassIdentifier: 
   Label: Tier 5
-  Id: 4
-  Damage: 1
-  Speed: 1
-  Distance: 14
+  Id: 5
+  Damage: 5
+  Speed: 1.8
+  Distance: 16
   Cost: 5
   Base: {fileID: 21300000, guid: 585c8b33d8f33d446b66507a939d3882, type: 3}
   Barrel: {fileID: 21300000, guid: ca986aa7d2fad4e4299b79b511d03f71, type: 3}

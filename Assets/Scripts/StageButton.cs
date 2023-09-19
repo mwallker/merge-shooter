@@ -63,17 +63,17 @@ public class StageButton : MonoBehaviour
 
             int score = GetScoreByLevelId(StageNumberReference.text);
 
-            if (score >= _levelConfig.ScoreLimits[0])
+            if (score > 0)
             {
                 LeftStarReference.Fill();
             }
 
-            if (score >= _levelConfig.ScoreLimits[1])
+            if (score >= _levelConfig.AverageScore)
             {
                 MiddleStarReference.Fill();
             }
 
-            if (score >= _levelConfig.ScoreLimits[2])
+            if (score == _levelConfig.MaxScore)
             {
                 RightStarReference.Fill();
             }

@@ -17,7 +17,46 @@ MonoBehaviour:
   BaseHealth: 100
   BaseCoins: 10
   MonsterSpawnRate: 1
-  MaxGunTier: 5
+  MaxGunTier: 6
   Monsters:
-  - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
+  - {fileID: 11400000, guid: 4a34c809925437444b4ccbbf6e4643eb, type: 2}
   ScoreLimits: 0a0000001e00000064000000

@@ -26,9 +26,7 @@ public class Level : MonoBehaviour
 
     public int Score { get; private set; }
 
-    // public int[] ScoreLimits { get; private set; }
-
-    private readonly int BaseLevelScore = 10;
+    private readonly int DefaultGunTier = 1;
 
     public List<MonsterTemplate> Monsters { get; private set; }
 
@@ -61,8 +59,6 @@ public class Level : MonoBehaviour
         CurrentHealth = LevelManager.Instance.SelectedLevel.BaseHealth;
         AliveMonsters = LevelManager.Instance.SelectedLevel.Monsters.Count;
         MaxGunTier = LevelManager.Instance.SelectedLevel.MaxGunTier;
-        // Monsters = LevelManager.Instance.SelectedLevel.Monsters;
-        // ScoreLimits = LevelManager.Instance.SelectedLevel.ScoreLimits;
 
         UpdateCoins();
         UpdateBaseHealth();
@@ -111,7 +107,12 @@ public class Level : MonoBehaviour
 
     private void OnGunBuild(GunPlatform platform)
     {
-        GunTierTemplate tier = GetTierById(0);
+        GunTierTemplate tier = GetTierById(DefaultGunTier);
+
+        if (tier == null)
+        {
+            return;
+        }
 
         if (tier.Cost <= CurrentCoins)
         {
@@ -177,7 +178,7 @@ public class Level : MonoBehaviour
         else if (AliveMonsters <= 0)
         {
             targetState = LevelState.Completed;
-            Score += BaseLevelScore;
+            Score += LevelManager.Instance.SelectedLevel.CompletionReward;
             WinScreen.SetActive(true);
         }
 
