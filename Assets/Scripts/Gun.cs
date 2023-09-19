@@ -73,7 +73,7 @@ public class Gun : MonoBehaviour
         }
 
         GunAnimator.speed = AttackSpeed;
-        LevelLabelReference.text = (Tier + 1).ToString();
+        LevelLabelReference.text = Tier.ToString();
     }
 
     private IEnumerator Attack()

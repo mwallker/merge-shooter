@@ -21,8 +21,6 @@ public class LevelConfig : ScriptableObject
 
     public List<MonsterTemplate> Monsters = new();
 
-    public int[] ScoreLimits = new int[3] { 0, 1, 2 };
-
     public int MinScore { get => CompletionReward; }
 
     public int AverageScore { get => Mathf.FloorToInt(MaxScore / 2); }

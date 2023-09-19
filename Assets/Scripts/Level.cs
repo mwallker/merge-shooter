@@ -87,12 +87,15 @@ public class Level : MonoBehaviour
 
     private GunTierTemplate GetTierById(int tierId)
     {
-        if (tierId >= gunsTierList.Count)
+        for (int i = 0; i < MaxGunTier; i++)
         {
-            return null;
+            if (gunsTierList[i].Id == tierId)
+            {
+                return gunsTierList[i];
+            }
         }
 
-        return gunsTierList[tierId];
+        return null;
     }
 
     private void UpdateCoins()
@@ -132,7 +135,7 @@ public class Level : MonoBehaviour
     {
         GunTierTemplate tier = GetTierById(gun.Tier + 1);
 
-        if (tier != null && tier.Cost <= CurrentCoins && gun.Tier < MaxGunTier)
+        if (tier != null && tier.Cost <= CurrentCoins)
         {
             gun.Upgrade(tier);
 
@@ -198,7 +201,7 @@ public class Level : MonoBehaviour
 
     private void SaveScores()
     {
-        if (IsNewRecord())
+        if (IsNewRecord() && CurrentState == LevelState.Completed)
         {
             PlayerPrefs.SetInt(LevelManager.Instance.SelectedLevel.Id.ToString(), Score);
             PlayerPrefs.Save();

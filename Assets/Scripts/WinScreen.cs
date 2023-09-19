@@ -32,6 +32,13 @@ public class WinScreen : MonoBehaviour
         StartCoroutine(ScoreCounter());
     }
 
+    void OnDisable()
+    {
+        scoreReference.text = "0";
+
+        StopAllCoroutines();
+    }
+
     private void HandleStageSelected()
     {
         LevelManager.Instance.LoadStageSelectionScene();
@@ -48,17 +55,17 @@ public class WinScreen : MonoBehaviour
             elapsedTime += Time.deltaTime;
             scoreReference.text = currentScore.ToString();
 
-            if (currentScore == LevelManager.Instance.SelectedLevel.MinScore)
+            if (leftStarReference.IsEmpty() && currentScore >= LevelManager.Instance.SelectedLevel.MinScore)
             {
                 leftStarReference.Fill();
             }
 
-            if (currentScore == LevelManager.Instance.SelectedLevel.AverageScore)
+            if (middleStarReference.IsEmpty() && currentScore >= LevelManager.Instance.SelectedLevel.AverageScore)
             {
                 middleStarReference.Fill();
             }
 
-            if (currentScore == LevelManager.Instance.SelectedLevel.MaxScore)
+            if (rightStarReference.IsEmpty() && currentScore >= LevelManager.Instance.SelectedLevel.MaxScore)
             {
                 rightStarReference.Fill();
             }

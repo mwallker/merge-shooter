@@ -7,9 +7,6 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private Monster monsterPrefab;
 
-    [SerializeField]
-    private float spawnInterval = 1.5f;
-
     private readonly List<Monster> _spawnedMonsters = new();
 
     void Start()
@@ -28,7 +25,7 @@ public class MonsterSpawner : MonoBehaviour
 
             _spawnedMonsters.Add(monster);
 
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(LevelManager.Instance.SelectedLevel.MonsterSpawnRate);
         }
     }
 

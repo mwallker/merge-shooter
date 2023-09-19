@@ -15,4 +15,9 @@ public class Star : MonoBehaviour
     {
         foregroundReference.gameObject.SetActive(false);
     }
+
+    public bool IsEmpty()
+    {
+        return !foregroundReference.gameObject.activeSelf;
+    }
 }
