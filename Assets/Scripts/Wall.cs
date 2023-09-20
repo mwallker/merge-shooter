@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    Animator wallAnimator;
+    private Animator _wallAnimator;
+
+    private AudioSource _wallAudioSource;
 
     // Start is called before the first frame update
     void Awake()
     {
-        wallAnimator = GetComponent<Animator>();
+        _wallAnimator = GetComponent<Animator>();
+        _wallAudioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +20,7 @@ public class Wall : MonoBehaviour
             target.HitCore();
         }
 
-        wallAnimator.SetTrigger("Hit");
+        _wallAnimator.SetTrigger("Hit");
+        _wallAudioSource.Play();
     }
 }

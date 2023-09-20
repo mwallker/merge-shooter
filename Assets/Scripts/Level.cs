@@ -55,13 +55,16 @@ public class Level : MonoBehaviour
             Instance = this;
         }
 
-        CurrentCoins = LevelManager.Instance.SelectedLevel.BaseCoins;
-        CurrentHealth = LevelManager.Instance.SelectedLevel.BaseHealth;
-        AliveMonsters = LevelManager.Instance.SelectedLevel.Monsters.Count;
-        MaxGunTier = LevelManager.Instance.SelectedLevel.MaxGunTier;
+        if (LevelManager.Instance != null)
+        {
+            CurrentCoins = LevelManager.Instance.SelectedLevel.BaseCoins;
+            CurrentHealth = LevelManager.Instance.SelectedLevel.BaseHealth;
+            AliveMonsters = LevelManager.Instance.SelectedLevel.Monsters.Count;
+            MaxGunTier = LevelManager.Instance.SelectedLevel.MaxGunTier;
 
-        UpdateCoins();
-        UpdateBaseHealth();
+            UpdateCoins();
+            UpdateBaseHealth();
+        }
     }
 
     void Start()
@@ -105,7 +108,7 @@ public class Level : MonoBehaviour
 
     private void UpdateBaseHealth()
     {
-        BaseHealthLabel.text = CurrentHealth.ToString();
+        BaseHealthLabel.text = $"{CurrentHealth} / {LevelManager.Instance.SelectedLevel.BaseHealth}";
     }
 
     private void OnGunBuild(GunPlatform platform)

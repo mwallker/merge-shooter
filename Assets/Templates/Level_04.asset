@@ -16,8 +16,9 @@ MonoBehaviour:
   PreviousId: 3
   BaseHealth: 100
   BaseCoins: 10
-  MonsterSpawnRate: 1
+  MonsterSpawnRate: 2
   MaxGunTier: 5
+  CompletionReward: 10
   Monsters:
   - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}
   - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}
@@ -49,4 +50,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}
   - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}
   - {fileID: 11400000, guid: 0586af32d0b8d6f47acd7d91bc840e3d, type: 2}
-  ScoreLimits: 0a0000001e00000064000000

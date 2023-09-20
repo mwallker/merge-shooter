@@ -17,6 +17,14 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI LevelLabelReference;
 
+    [SerializeField]
+    private AudioClip BuildSoundEffect;
+
+    [SerializeField]
+    private AudioClip ShootSoundEffect;
+
+    private AudioSource GunAudioSource;
+
     public float AttackDamage { get; private set; }
 
     public float AttackSpeed { get; private set; }
@@ -34,6 +42,11 @@ public class Gun : MonoBehaviour
     public GunPlatform Platform { get; private set; }
 
     private Monster target;
+
+    void Awake()
+    {
+        GunAudioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
@@ -53,6 +66,8 @@ public class Gun : MonoBehaviour
     {
         Platform = platform;
         transform.SetPositionAndRotation(platform.transform.position, platform.transform.rotation);
+
+        PlaySoundEffect(BuildSoundEffect);
     }
 
     public void Upgrade(GunTierTemplate tier)
@@ -74,6 +89,8 @@ public class Gun : MonoBehaviour
 
         GunAnimator.speed = AttackSpeed;
         LevelLabelReference.text = Tier.ToString();
+
+        PlaySoundEffect(BuildSoundEffect);
     }
 
     private IEnumerator Attack()
@@ -90,6 +107,7 @@ public class Gun : MonoBehaviour
                 IsShooting = true;
                 GunAnimator.SetBool("IsShooting", true);
 
+                PlaySoundEffect(ShootSoundEffect);
                 Messaging<GunShootEvent>.Trigger?.Invoke(this);
 
                 yield return new WaitForSeconds(SHOOT_TIME / AttackSpeed);
@@ -100,6 +118,12 @@ public class Gun : MonoBehaviour
 
             yield return new WaitForSeconds(AIMING_TIME / AttackSpeed);
         }
+    }
+
+    private void PlaySoundEffect(AudioClip clip)
+    {
+        GunAudioSource.clip = clip;
+        GunAudioSource?.Play();
     }
 
     private void HandleLevelStateChange(LevelState state)

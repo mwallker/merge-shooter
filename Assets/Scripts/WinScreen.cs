@@ -53,26 +53,35 @@ public class WinScreen : MonoBehaviour
         {
             int currentScore = Mathf.RoundToInt(elapsedTime / duration * Level.Instance.Score);
             elapsedTime += Time.deltaTime;
-            scoreReference.text = currentScore.ToString();
 
-            if (leftStarReference.IsEmpty() && currentScore >= LevelManager.Instance.SelectedLevel.MinScore)
-            {
-                leftStarReference.Fill();
-            }
-
-            if (middleStarReference.IsEmpty() && currentScore >= LevelManager.Instance.SelectedLevel.AverageScore)
-            {
-                middleStarReference.Fill();
-            }
-
-            if (rightStarReference.IsEmpty() && currentScore >= LevelManager.Instance.SelectedLevel.MaxScore)
-            {
-                rightStarReference.Fill();
-            }
+            UpdateStars(currentScore);
 
             yield return null;
         }
 
-        scoreReference.text = Level.Instance.Score.ToString();
+        UpdateStars(Level.Instance.Score);
+    }
+
+    private void UpdateStars(int score)
+    {
+        if (leftStarReference.IsEmpty() && score >= LevelManager.Instance.SelectedLevel.MinScore)
+        {
+            leftStarReference.Fill();
+            leftStarReference.Ring();
+        }
+
+        if (middleStarReference.IsEmpty() && score >= LevelManager.Instance.SelectedLevel.AverageScore)
+        {
+            middleStarReference.Fill();
+            middleStarReference.Ring();
+        }
+
+        if (rightStarReference.IsEmpty() && score >= LevelManager.Instance.SelectedLevel.MaxScore)
+        {
+            rightStarReference.Fill();
+            rightStarReference.Ring();
+        }
+
+        scoreReference.text = score.ToString();
     }
 }

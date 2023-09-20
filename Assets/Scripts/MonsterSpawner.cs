@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
 
     void Start()
     {
-        // Messaging<LevelStateChangedEvent>.Register((state) => StopAllCoroutines());
+        Messaging<LevelStateChangedEvent>.Register((state) => StopAllCoroutines());
 
         StartCoroutine(SpawnMonsterWithInterval());
     }

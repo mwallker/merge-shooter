@@ -9,8 +9,6 @@ public class BulletSpawner : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("AWAKE");
-
         bulletsPool = new Pool<Bullet>(CreateBullet, ReleaseBullet);
 
         Messaging<GunShootEvent>.Register(HandleShoot);

@@ -6,7 +6,7 @@ public class Monster : MonoBehaviour, IDamageable
     private Animator MonsterAnimator;
 
     [SerializeField]
-    private HealthBar HealthBarReference;
+    private MonsterHealthBar HealthBarReference;
 
     [SerializeField]
     public SpriteRenderer BodyReference;
