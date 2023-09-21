@@ -7,13 +7,6 @@ public class GunPlatform : MonoBehaviour, IPointerDownHandler
 
     public int Line { get; set; }
 
-    private AudioSource _gunBuildAudioSource;
-
-    void Awake()
-    {
-        _gunBuildAudioSource = GetComponent<AudioSource>();
-    }
-
     public void Install(Gun gun)
     {
         if (InstalledGun == null)

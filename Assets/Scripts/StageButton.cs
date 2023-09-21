@@ -36,7 +36,7 @@ public class StageButton : MonoBehaviour
 
     private int GetScoreByLevelId(string id)
     {
-        if (_levelConfig != null && PlayerPrefs.HasKey(id))
+        if (PlayerPrefs.HasKey(id))
         {
             return PlayerPrefs.GetInt(id);
         }
@@ -61,7 +61,7 @@ public class StageButton : MonoBehaviour
             _levelConfig = config;
             StageNumberReference.text = _levelConfig.Id.ToString();
 
-            int score = GetScoreByLevelId(StageNumberReference.text);
+            int score = GetScoreByLevelId(_levelConfig.Id.ToString());
 
             if (score > 0)
             {

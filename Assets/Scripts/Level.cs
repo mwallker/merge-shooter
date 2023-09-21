@@ -85,6 +85,8 @@ public class Level : MonoBehaviour
 
     void OnDisable()
     {
+        Stop();
+
         Instance = null;
     }
 

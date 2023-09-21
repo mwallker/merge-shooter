@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Monster_03
   m_EditorClassIdentifier: 
   Id: 3
-  HitPoints: 50
+  HitPoints: 100
   Speed: 1
   Reward: 15
   Score: 10

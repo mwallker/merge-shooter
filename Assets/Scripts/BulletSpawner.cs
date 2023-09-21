@@ -17,6 +17,8 @@ public class BulletSpawner : MonoBehaviour
 
     void OnDisable()
     {
+        bulletsPool.Clear();
+
         Messaging<GunShootEvent>.Unregister(HandleShoot);
         Messaging<LevelStateChangedEvent>.Unregister(HandleStateChange);
     }

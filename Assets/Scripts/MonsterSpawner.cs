@@ -11,9 +11,16 @@ public class MonsterSpawner : MonoBehaviour
 
     void Start()
     {
-        Messaging<LevelStateChangedEvent>.Register((state) => StopAllCoroutines());
-
         StartCoroutine(SpawnMonsterWithInterval());
+
+        Messaging<LevelStateChangedEvent>.Register(HandleLevelStateChange);
+    }
+
+    void OnDisable()
+    {
+        StopAllCoroutines();
+
+        Messaging<LevelStateChangedEvent>.Unregister(HandleLevelStateChange);
     }
 
     private IEnumerator SpawnMonsterWithInterval()
@@ -43,5 +50,10 @@ public class MonsterSpawner : MonoBehaviour
                 monster.transform.Translate(monster.Speed * Time.deltaTime * Vector2.down);
             }
         }
+    }
+
+    private void HandleLevelStateChange(LevelState state)
+    {
+        StopAllCoroutines();
     }
 }
