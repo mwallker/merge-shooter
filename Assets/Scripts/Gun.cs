@@ -128,8 +128,6 @@ public class Gun : MonoBehaviour
 
     private void HandleLevelStateChange(LevelState state)
     {
-        Debug.Log(state);
-
         StopAllCoroutines();
         GunAnimator.SetBool("IsShooting", false);
     }

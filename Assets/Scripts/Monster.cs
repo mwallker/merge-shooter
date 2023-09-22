@@ -49,10 +49,10 @@ public class Monster : MonoBehaviour, IDamageable
 
             if (HitPoints <= 0)
             {
+                Messaging<MonsterDefeatedEvent>.Trigger?.Invoke(this);
+
                 HitPoints = 0;
                 gameObject.SetActive(false);
-
-                Messaging<MonsterDefeatedEvent>.Trigger?.Invoke(this);
             }
         }
     }
@@ -68,7 +68,7 @@ public class Monster : MonoBehaviour, IDamageable
     public Monster SetAttackLine(int value)
     {
         Line = value;
-        transform.position = new Vector2(value * 2 - 5, 18);
+        transform.position = new Vector2(value * 2 - 5, 20f);
 
         return this;
     }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,6 +38,13 @@ public class WinScreen : MonoBehaviour
         scoreReference.text = "0";
 
         StopAllCoroutines();
+    }
+
+    public async void Activate()
+    {
+        await Task.Delay(2000);
+
+        gameObject.SetActive(true);
     }
 
     private void HandleStageSelected()

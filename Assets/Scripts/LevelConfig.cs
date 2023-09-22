@@ -23,7 +23,7 @@ public class LevelConfig : ScriptableObject
 
     public int MinScore { get => CompletionReward; }
 
-    public int AverageScore { get => Mathf.FloorToInt(MaxScore / 2); }
+    public int AverageScore { get => Mathf.RoundToInt(MaxScore / 2); }
 
     public int MaxScore { get => Monsters.Sum((monster) => monster.Score) + CompletionReward; }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -40,7 +41,7 @@ public class Level : MonoBehaviour
     private GameObject DefeatScreen;
 
     [SerializeField]
-    private GameObject WinScreen;
+    private WinScreen WinScreenReference;
 
     [SerializeField]
     private Gun gunPrefab;
@@ -156,8 +157,8 @@ public class Level : MonoBehaviour
         Score += monster.Score;
         AliveMonsters--;
 
-        IsCompleted();
         UpdateCoins();
+        CheckConditions();
     }
 
     private void OnMonsterHitCore(Monster monster)
@@ -165,35 +166,32 @@ public class Level : MonoBehaviour
         CurrentHealth -= monster.HitPoints;
         AliveMonsters--;
 
-        IsCompleted();
         UpdateBaseHealth();
+        CheckConditions();
     }
 
-    private bool IsCompleted()
+    private bool CheckConditions()
     {
         if (CurrentState != LevelState.Idle)
         {
             return true;
         }
 
-        LevelState targetState = CurrentState;
-
-        if (CurrentHealth <= 0)
+        if (IsFailed())
         {
-            targetState = LevelState.Failed;
+            CurrentState = LevelState.Failed;
             DefeatScreen.SetActive(true);
         }
-        else if (AliveMonsters <= 0)
+        else if (IsCompleted())
         {
-            targetState = LevelState.Completed;
+            CurrentState = LevelState.Completed;
             Score += LevelManager.Instance.SelectedLevel.CompletionReward;
-            WinScreen.SetActive(true);
+
+            WinScreenReference.Activate();
         }
 
-        if (CurrentState != targetState)
+        if (CurrentState != LevelState.Idle)
         {
-            CurrentState = targetState;
-
             Messaging<LevelStateChangedEvent>.Trigger?.Invoke(CurrentState);
             SaveScores();
             Stop();
@@ -202,6 +200,16 @@ public class Level : MonoBehaviour
         }
 
         return false;
+    }
+
+    private bool IsCompleted()
+    {
+        return AliveMonsters <= 0;
+    }
+
+    private bool IsFailed()
+    {
+        return CurrentHealth <= 0;
     }
 
     private void SaveScores()

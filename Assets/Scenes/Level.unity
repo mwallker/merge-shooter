@@ -2456,6 +2456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640809221}
   - component: {fileID: 1640809220}
+  - component: {fileID: 1640809222}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -2478,7 +2479,7 @@ MonoBehaviour:
   CoinsCounterLabel: {fileID: 1625541}
   BaseHealthLabel: {fileID: 1119285243}
   DefeatScreen: {fileID: 1223376090}
-  WinScreen: {fileID: 105823304}
+  WinScreenReference: {fileID: 105823308}
   gunPrefab: {fileID: 5742280935649727129, guid: 9b50549bf6780d74c89e450a37a92c84, type: 3}
   gunsTierList:
   - {fileID: 11400000, guid: 789f3da90f34cff489cbcb19ed64a8d3, type: 2}
@@ -2508,6 +2509,19 @@ Transform:
   - {fileID: 832521975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1640809222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640809219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dcf8b7e07a4a4142a0d84891b97a624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 5031050623125388882, guid: 052ae10fba221e548a4453e28008df84, type: 3}
 --- !u!1 &1825134714
 GameObject:
   m_ObjectHideFlags: 0
