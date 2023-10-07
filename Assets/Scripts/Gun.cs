@@ -15,6 +15,9 @@ public class Gun : MonoBehaviour
     private SpriteRenderer BarrelSpriteReference;
 
     [SerializeField]
+    private SpriteRenderer AttackRangeSpriteReference;
+
+    [SerializeField]
     private TextMeshProUGUI LevelLabelReference;
 
     [SerializeField]
@@ -86,6 +89,8 @@ public class Gun : MonoBehaviour
         {
             BarrelSpriteReference.sprite = tier.Barrel;
         }
+
+        AttackRangeSpriteReference.size = new Vector2(1.1f, tier.Distance); // size.Set(1.1f, tier.Distance);
 
         GunAnimator.speed = AttackSpeed;
         LevelLabelReference.text = Tier.ToString();

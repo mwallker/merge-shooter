@@ -9,7 +9,7 @@ public class CoinSpawner : MonoBehaviour
 
     void Start()
     {
-        _coinsPool = new Pool<Coin>(CreateCoin, ReleaseCoin);
+        _coinsPool = new Pool<Coin>(CreateCoin, GetCoin, ReleaseCoin);
 
         Messaging<MonsterDefeatedEvent>.Register(HandleMonsterDefeat);
     }
@@ -24,6 +24,11 @@ public class CoinSpawner : MonoBehaviour
     private Coin CreateCoin()
     {
         return Instantiate(coinPrefab);
+    }
+
+    private void GetCoin(Coin coin)
+    {
+        coin.gameObject.SetActive(true);
     }
 
     private void ReleaseCoin(Coin coin)

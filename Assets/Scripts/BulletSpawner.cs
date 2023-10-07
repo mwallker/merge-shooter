@@ -9,7 +9,7 @@ public class BulletSpawner : MonoBehaviour
 
     void Awake()
     {
-        bulletsPool = new Pool<Bullet>(CreateBullet, ReleaseBullet);
+        bulletsPool = new Pool<Bullet>(CreateBullet, GetBullet, ReleaseBullet);
 
         Messaging<GunShootEvent>.Register(HandleShoot);
         Messaging<LevelStateChangedEvent>.Register(HandleStateChange);
@@ -26,6 +26,11 @@ public class BulletSpawner : MonoBehaviour
     private Bullet CreateBullet()
     {
         return Instantiate(bulletPrefab);
+    }
+
+    private void GetBullet(Bullet bullet)
+    {
+        bullet.gameObject.SetActive(true);
     }
 
     private void ReleaseBullet(Bullet bullet)

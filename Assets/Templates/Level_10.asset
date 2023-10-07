@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 10
   PreviousId: 9
   BaseHealth: 100
-  BaseCoins: 10
+  BaseCoins: 20
   MonsterSpawnRate: 5
   MaxGunTier: 9
   CompletionReward: 10

@@ -41,6 +41,9 @@ public class Level : MonoBehaviour
     private GameObject DefeatScreen;
 
     [SerializeField]
+    private GameObject PauseScreen;
+
+    [SerializeField]
     private WinScreen WinScreenReference;
 
     [SerializeField]
@@ -233,5 +236,28 @@ public class Level : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void PauseLevel()
+    {
+        Time.timeScale = 0f;
+        PauseScreen.SetActive(true);
+    }
+
+    public void ResumeLevel()
+    {
+        Time.timeScale = 1f;
+        PauseScreen.SetActive(false);
+    }
+
+    public void RestartLevel()
+    {
+        ResumeLevel();
+        LevelManager.Instance.RestartLevelScene();
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
