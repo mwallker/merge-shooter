@@ -27,7 +27,7 @@ public class Level : MonoBehaviour
 
     public int Score { get; private set; }
 
-    private readonly int DefaultGunTier = 1;
+    public static readonly int DefaultGunTier = 1;
 
     public List<MonsterTemplate> Monsters { get; private set; }
 
@@ -94,7 +94,7 @@ public class Level : MonoBehaviour
         Instance = null;
     }
 
-    private GunTierTemplate GetTierById(int tierId)
+    public GunTierTemplate GetTierById(int tierId)
     {
         for (int i = 0; i < MaxGunTier; i++)
         {
@@ -110,6 +110,8 @@ public class Level : MonoBehaviour
     private void UpdateCoins()
     {
         CoinsCounterLabel.text = CurrentCoins.ToString();
+
+        Messaging<LevelBalanceChangeEvent>.Trigger?.Invoke(CurrentCoins);
     }
 
     private void UpdateBaseHealth()
@@ -121,37 +123,26 @@ public class Level : MonoBehaviour
     {
         GunTierTemplate tier = GetTierById(DefaultGunTier);
 
-        if (tier == null)
-        {
-            return;
-        }
+        Gun gun = Instantiate(gunPrefab, Input.mousePosition, Quaternion.identity);
+        gun.Build(platform);
+        gun.Upgrade(tier);
 
-        if (tier.Cost <= CurrentCoins)
-        {
-            Gun gun = Instantiate(gunPrefab, Input.mousePosition, Quaternion.identity);
-            gun.Build(platform);
-            gun.Upgrade(tier);
+        platform.Install(gun);
 
-            platform.Install(gun);
+        CurrentCoins -= tier.Cost;
 
-            CurrentCoins -= tier.Cost;
-
-            UpdateCoins();
-        }
+        UpdateCoins();
     }
 
     private void OnGunUpgrade(Gun gun)
     {
         GunTierTemplate tier = GetTierById(gun.Tier + 1);
 
-        if (tier != null && tier.Cost <= CurrentCoins)
-        {
-            gun.Upgrade(tier);
+        gun.Upgrade(tier);
 
-            CurrentCoins -= tier.Cost;
+        CurrentCoins -= tier.Cost;
 
-            UpdateCoins();
-        }
+        UpdateCoins();
     }
 
     private void OnMonsterDefeated(Monster monster)

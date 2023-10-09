@@ -17,6 +17,6 @@ MonoBehaviour:
   Damage: 1
   Speed: 1
   Distance: 15
-  Cost: 5
+  Cost: 3
   Base: {fileID: 21300000, guid: 3efe568f678388b4e86695027564207d, type: 3}
   Barrel: {fileID: 21300000, guid: f3615c128258da54ba05bd7499591dc5, type: 3}

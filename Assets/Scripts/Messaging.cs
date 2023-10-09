@@ -12,6 +12,8 @@ public delegate void MonsterHitCoreEvent(Monster monster);
 
 public delegate void LevelStateChangedEvent(LevelState phase);
 
+public delegate void LevelBalanceChangeEvent(float amount);
+
 public static class Messaging<T> where T : Delegate
 {
   private static T handle;

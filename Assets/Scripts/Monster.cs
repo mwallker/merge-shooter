@@ -32,7 +32,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     public int Score { get; private set; } = 10;
 
-    public float Line { get; private set; } = -1;
+    public int Line { get; private set; } = -1;
 
     void Awake()
     {

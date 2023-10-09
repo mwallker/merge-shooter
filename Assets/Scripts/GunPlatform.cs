@@ -15,16 +15,37 @@ public class GunPlatform : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    public GunTierTemplate GetNextTier()
+    {
+        int tierId = InstalledGun == null ? Level.DefaultGunTier : InstalledGun.Tier + 1;
+
+        return Level.Instance.GetTierById(tierId);
+    }
+
+    public bool HasNextTier()
+    {
+        var nextTier = GetNextTier();
+
+        if (nextTier == null)
+        {
+            return false;
+        }
+
+        return nextTier.Cost <= Level.Instance.CurrentCoins;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        // Install gun at platform
-        if (InstalledGun == null)
+        if (HasNextTier())
         {
-            Messaging<GunBuildEvent>.Trigger?.Invoke(this);
-        }
-        else
-        {
-            Messaging<GunUpgradeEvent>.Trigger?.Invoke(InstalledGun);
+            if (InstalledGun == null)
+            {
+                Messaging<GunBuildEvent>.Trigger?.Invoke(this);
+            }
+            else
+            {
+                Messaging<GunUpgradeEvent>.Trigger?.Invoke(InstalledGun);
+            }
         }
     }
 }

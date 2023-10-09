@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   HitPoints: 12
-  Speed: 2
+  Speed: 1.5
   Reward: 5
   Score: 10
   Body: {fileID: 21300000, guid: 438d086486fb83147b3c6a582213c705, type: 3}

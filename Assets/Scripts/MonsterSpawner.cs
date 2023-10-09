@@ -7,10 +7,22 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private Monster monsterPrefab;
 
+    [SerializeField]
+    private MonsterMarker monsterMarkerPrefab;
+
     private readonly List<Monster> _spawnedMonsters = new();
+    private readonly List<MonsterMarker> _spawnedMarkers = new(PlatformGrid.LinesCount);
 
     void Start()
     {
+        for (int i = 0; i < _spawnedMarkers.Capacity; i++)
+        {
+            var marker = Instantiate(monsterMarkerPrefab, new Vector3(i * 2f - 5f, 10f, 0f), Quaternion.identity);
+            marker.gameObject.SetActive(false);
+
+            _spawnedMarkers.Add(marker);
+        }
+
         StartCoroutine(SpawnMonsterWithInterval());
 
         Messaging<LevelStateChangedEvent>.Register(HandleLevelStateChange);
@@ -25,14 +37,18 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator SpawnMonsterWithInterval()
     {
-        for (int i = 0; i < LevelManager.Instance.SelectedLevel.Monsters.Count; i++)
+        if (LevelManager.Instance != null)
         {
-            var parameters = LevelManager.Instance.SelectedLevel.Monsters[i];
-            var monster = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, PlatformGrid.LinesCount)).SetParameters(parameters);
+            for (int i = 0; i < LevelManager.Instance.SelectedLevel.Monsters.Count; i++)
+            {
+                var parameters = LevelManager.Instance.SelectedLevel.Monsters[i];
+                var monster = Instantiate(monsterPrefab).SetAttackLine(Random.Range(0, PlatformGrid.LinesCount)).SetParameters(parameters);
 
-            _spawnedMonsters.Add(monster);
+                _spawnedMonsters.Add(monster);
+                _spawnedMarkers[monster.Line].SetMarker(monster);
 
-            yield return new WaitForSeconds(LevelManager.Instance.SelectedLevel.MonsterSpawnRate);
+                yield return new WaitForSeconds(LevelManager.Instance.SelectedLevel.MonsterSpawnRate);
+            }
         }
     }
 
@@ -49,6 +65,11 @@ public class MonsterSpawner : MonoBehaviour
             {
                 monster.transform.Translate(monster.Speed * Time.deltaTime * Vector2.down);
             }
+        }
+
+        for (int i = 0; i < _spawnedMarkers.Capacity; i++)
+        {
+            _spawnedMarkers[i].UpdateMarker();
         }
     }
 

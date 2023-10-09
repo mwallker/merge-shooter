@@ -34,6 +34,8 @@ public class Gun : MonoBehaviour
 
     public float AttackDistance { get; private set; }
 
+    public float Cost { get; private set; }
+
     public int Tier { get; private set; }
 
     private readonly float SHOOT_TIME = 0.1f;
@@ -79,6 +81,7 @@ public class Gun : MonoBehaviour
         AttackDistance = tier.Distance;
         AttackSpeed = tier.Speed;
         Tier = tier.Id;
+        Cost = tier.Cost;
 
         if (tier.Base != null)
         {
