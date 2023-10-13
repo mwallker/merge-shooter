@@ -1,1 +1,3 @@
-# merge-shooter
+# Wall Defence
+
+Tower Defense game
