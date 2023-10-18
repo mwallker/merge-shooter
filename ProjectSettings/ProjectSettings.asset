@@ -258,7 +258,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: Dnimreven.keystore'
+  AndroidKeystoreName: '{dedicated}: Dnimreven.keystore'
   AndroidKeyaliasName: wall_defence
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0

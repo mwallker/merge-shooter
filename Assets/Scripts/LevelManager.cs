@@ -28,6 +28,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     public void LoadMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu");

@@ -9,8 +9,7 @@ public class StagesScreen : MonoBehaviour
     {
         foreach (var levelConfig in LevelManager.Instance.GetList())
         {
-            var levelInstance = Instantiate(stageButton, transform);
-            levelInstance.SetLevelConfig(levelConfig);
+            Instantiate(stageButton, transform).SetLevelConfig(levelConfig);
         }
     }
 }

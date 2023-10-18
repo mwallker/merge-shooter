@@ -249,6 +249,6 @@ public class Level : MonoBehaviour
 
     public void Exit()
     {
-        Application.Quit();
+        LevelManager.Instance.LoadStageSelectionScene();
     }
 }
