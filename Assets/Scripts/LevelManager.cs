@@ -8,9 +8,6 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
     [SerializeField]
-    private TextMeshProUGUI loadingScreen;
-
-    [SerializeField]
     private List<LevelConfig> levels = new();
 
     public LevelConfig SelectedLevel { get; private set; }
